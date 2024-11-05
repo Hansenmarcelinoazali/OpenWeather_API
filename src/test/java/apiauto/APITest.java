@@ -28,7 +28,7 @@ public class APITest {
                 .then()
                 .assertThat().statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonWeather)) // json schema validator
-                .and().body("name", equalTo("Yogyakarta"))
+                .and().body("name", equalTo("Terban"))
                 .and().body("sys.country", equalTo("ID"))
                 .extract().response();
 
@@ -45,8 +45,8 @@ public class APITest {
         File jsonschemaPolution = new  File("src/test/resources/jsonschemavalidator/validatorcurrentpolution.json");
 
         Response response = given()
-                .queryParam("lat", "-7.8006")
-                .queryParam("lon", "110.3646")
+                .queryParam("lat", "-7.7743")
+                .queryParam("lon", "110.3638")
                 .queryParam("appid", "ce069d17bee744158b18e562e943aa0c")
                 .when()
                 .get("air_pollution")
